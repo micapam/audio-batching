@@ -24,7 +24,7 @@ EOF
   exit 0
 }
 
-[ $# -eq 0 ] && usage
+# [ $# -eq 0 ] && usage
 
 DIR=`pwd`
 FORMAT=mp3
@@ -53,7 +53,7 @@ while getopts "d:f:hv" arg; do
 done
 shift $((OPTIND-1))
 
-find -E $DIR -type f -iregex '.*\.flac$' -print0 | while read -d $'\0' INPUT
+find -E "$DIR" -type f -iregex '.*\.flac$' -print0 | while read -d $'\0' INPUT
 do
   if [ $VERBOSE == 1 ]
   then
